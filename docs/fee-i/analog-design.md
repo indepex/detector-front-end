@@ -30,15 +30,15 @@ The instrumentation amplifier consists of three operational amplifiers, as shown
 The first two operational amplifiers provide high input impedance and differential gain.
 The third operational amplifier converts the differential signal into a single-ended output.
 
-The two input voltages are denoted by \(V_p\) and \(V_m\), and the output voltage by \(V_{\mathrm{out}}\).
+The two input voltages are denoted by $V_p$ and $V_m$, and the output voltage by $V_{\mathrm{out}}$.
 
 ### 2.2 Common-Mode Rejection
 
 For the circuit to reject common-mode input signals, the resistor network of the differential output stage must satisfy
 
-\[
+$$
 \boxed{R_3 R_6=R_4 R_5}.
-\]
+$$
 
 In practice, the common-mode rejection ratio (CMRR) depends on the matching accuracy of these resistor ratios. Precision resistors are therefore important, particularly in applications where the detector and the front-end electronics may have different ground potentials.
 
@@ -46,31 +46,31 @@ In practice, the common-mode rejection ratio (CMRR) depends on the matching accu
 
 When the common-mode rejection condition is satisfied, the differential gain is determined by the resistor network.
 
-If all resistors except \(R_g\) have the same resistance \(R_A\),
+If all resistors except $R_g$ have the same resistance $R_A$,
 
-\[
+$$
 R_1=R_2=R_3=R_4=R_5=R_6=R_A,
-\]
+$$
 
 the gain becomes
 
-\[
+$$
 \boxed{G_A=1+\frac{2R_A}{R_g}}.
-\]
+$$
 
-Thus, the gain can be adjusted by changing \(R_g\) while keeping the other resistors equal.
+Thus, the gain can be adjusted by changing $R_g$ while keeping the other resistors equal.
 
-When \(R_g\) is omitted, corresponding to \(R_g\rightarrow\infty\), the gain becomes unity.
+When $R_g$ is omitted, corresponding to $R_g\rightarrow\infty$, the gain becomes unity.
 
 ### 2.4 Offset Voltage
 
-The instrumentation amplifier also allows an offset voltage to be introduced through the reference input \(V_R\).
+The instrumentation amplifier also allows an offset voltage to be introduced through the reference input $V_R$.
 
 When the resistor ratios satisfy the common-mode rejection condition, the output can be expressed as
 
-\[
+$$
 V_{\mathrm{out}}=G_A(V_p-V_m)+V_R.
-\]
+$$
 
 An appropriate reference voltage can therefore shift the amplified signal to the required output range.
 
@@ -99,44 +99,44 @@ The circuit also provides gain and offset adjustment.
 
 ### 3.2 Transfer Function
 
-For the frequency-response analysis, the offset inputs \(V_1\) and \(V_2\) in Figure 2 are set to ground.
+For the frequency-response analysis, the offset inputs $V_1$ and $V_2$ in Figure 2 are set to ground.
 
 The transfer function of the second-order filter can be written as
 
-\[
+$$
 T(f)=
 \frac{A}{
 1-(f/f_0)^2-iQ^{-1}(f/f_0)
 },
-\]
+$$
 
 where
 
-- \(A\) is the DC gain,
-- \(f_0\) is the characteristic frequency,
-- \(Q\) is the quality factor controlling the filter response.
+- $A$ is the DC gain,
+- $f_0$ is the characteristic frequency,
+- $Q$ is the quality factor controlling the filter response.
 
 For the circuit in Figure 2, these parameters are
 
-\[
+$$
 \boxed{A=\frac{R_3+R_4}{R_3}}
-\]
+$$
 
-\[
+$$
 \boxed{
 f_0=\frac{1}{2\pi\sqrt{C_1C_2R_1R_2}}
 }
-\]
+$$
 
 and
 
-\[
+$$
 \boxed{
 Q=
 \frac{\sqrt{C_1C_2R_1R_2}}
 {C_2R_2-C_1R_1R_4/R_3+C_2R_1}
 }.
-\]
+$$
 
 These equations allow the filter characteristics to be determined directly from the circuit components.
 
@@ -144,31 +144,31 @@ These equations allow the filter characteristics to be determined directly from 
 
 The design can be simplified by choosing equal resistors and capacitors in the frequency-selective network:
 
-\[
+$$
 R_1=R_2=R_F,
 \qquad
 C_1=C_2=C_F.
-\]
+$$
 
 The characteristic frequency then becomes
 
-\[
+$$
 \boxed{f_0=\frac{1}{2\pi R_FC_F}},
-\]
+$$
 
 and the quality factor becomes
 
-\[
+$$
 \boxed{Q=\frac{1}{2-R_4/R_3}}.
-\]
+$$
 
 The DC gain remains
 
-\[
+$$
 A=1+\frac{R_4}{R_3}.
-\]
+$$
 
-Consequently, the resistor ratio \(R_4/R_3\) determines both the gain and the quality factor, while \(R_FC_F\) determines the characteristic frequency.
+Consequently, the resistor ratio $R_4/R_3$ determines both the gain and the quality factor, while $R_FC_F$ determines the characteristic frequency.
 
 ### 3.4 Bessel Filter Response
 
@@ -181,27 +181,27 @@ A second-order Bessel response is chosen to reduce waveform distortion and provi
 
 For a second-order Bessel filter,
 
-\[
+$$
 \boxed{Q=\frac{1}{\sqrt{3}}}.
-\]
+$$
 
-Combining this with the simplified expression for \(Q\),
+Combining this with the simplified expression for $Q$,
 
-\[
+$$
 2-\frac{R_4}{R_3}=\sqrt{3},
-\]
+$$
 
 which gives
 
-\[
+$$
 \boxed{\frac{R_4}{R_3}=2-\sqrt{3}}.
-\]
+$$
 
 The corresponding DC gain is
 
-\[
+$$
 \boxed{A=3-\sqrt{3}\simeq1.268}.
-\]
+$$
 
 The actual resistor values can be selected from standard component series while maintaining this ratio as closely as practical.
 
@@ -213,23 +213,23 @@ For a pixel readout system, the settling time must be short enough that the resi
 
 For the second-order filter, the exponential decay of the step-response envelope is characterized by
 
-\[
+$$
 \tau=\frac{Q}{\pi f_0}.
-\]
+$$
 
-The time required for this envelope to decrease by a factor of \(2^{-N}\) is
+The time required for this envelope to decrease by a factor of $2^{-N}$ is
 
-\[
+$$
 \boxed{
 t_s(N)=N\ln(2)\frac{Q}{\pi f_0}
 }.
-\]
+$$
 
 For a 16-bit settling criterion,
 
-\[
+$$
 t_s(16)=16\ln(2)\frac{Q}{\pi f_0}.
-\]
+$$
 
 This expression provides a useful design criterion for selecting the filter bandwidth.
 
@@ -247,7 +247,7 @@ The signal-to-noise ratio (SNR) of an ADC is defined as the ratio of signal powe
 
 Expressed in decibels,
 
-\[
+$$
 \boxed{
 \mathrm{SNR}
 =
@@ -257,7 +257,7 @@ Expressed in decibels,
 {V_{\mathrm{noise,rms}}}
 \right)
 }.
-\]
+$$
 
 ADC datasheets commonly specify SNR using a sinusoidal input signal.
 The digitized waveform is analyzed in the frequency domain,
@@ -266,20 +266,20 @@ SNR, harmonic distortion components.
 
 ### 4.2 Quantization Noise
 
-An ideal \(N\)-bit ADC divides its input voltage range into \(2^N\) discrete levels.
+An ideal $N$-bit ADC divides its input voltage range into $2^N$ discrete levels.
 
-If the voltage corresponding to one least significant bit is \(V_{\mathrm{LSB}}\),
+If the voltage corresponding to one least significant bit is $V_{\mathrm{LSB}}$,
 the quantization error is assumed to be uniformly distributed over
 
-\[
+$$
 -\frac{V_{\mathrm{LSB}}}{2}
 \leq e \leq
 \frac{V_{\mathrm{LSB}}}{2}.
-\]
+$$
 
 The mean-square quantization error is
 
-\[
+$$
 V_{\mathrm{noise,rms}}^2
 =
 \frac{1}{V_{\mathrm{LSB}}}
@@ -287,46 +287,46 @@ V_{\mathrm{noise,rms}}^2
 e^2\,de
 =
 \frac{V_{\mathrm{LSB}}^2}{12}.
-\]
+$$
 
 Therefore,
 
-\[
+$$
 \boxed{
 V_{\mathrm{noise,rms}}
 =
 \frac{V_{\mathrm{LSB}}}{\sqrt{12}}
 }.
-\]
+$$
 
 ### 4.3 Ideal ADC SNR
 
 For a full-scale sinusoidal input, the RMS signal voltage is approximately
 
-\[
+$$
 V_{\mathrm{signal,rms}}
 =
 \frac{2^N V_{\mathrm{LSB}}}{2\sqrt{2}}.
-\]
+$$
 
 Combining this with the quantization noise gives
 
-\[
+$$
 \mathrm{SNR}
 =
 20\log_{10}
 \left(
 \frac{2^N\sqrt{12}}{2\sqrt{2}}
 \right).
-\]
+$$
 
-Thus, the theoretical SNR of an ideal \(N\)-bit ADC is
+Thus, the theoretical SNR of an ideal $N$-bit ADC is
 
-\[
+$$
 \boxed{
 \mathrm{SNR}=6.02N+1.76\ \mathrm{dB}
 }.
-\]
+$$
 
 For example, an ideal 16-bit ADC has an SNR of approximately 98.1 dB.
 
@@ -339,24 +339,24 @@ The effective number of bits (ENOB) expresses the measured ADC performance as an
 
 Using the ideal SNR relationship,
 
-\[
+$$
 \boxed{
 \mathrm{ENOB}
 =
 \frac{\mathrm{SNR}-1.76}{6.02}
 }.
-\]
+$$
 
 An ADC with a nominal resolution of 16 bits does not necessarily provide 16 bits of effective resolution.
 
 For example, an SNR of 92 dB corresponds to
 
-\[
+$$
 \mathrm{ENOB}
 =
 \frac{92-1.76}{6.02}
 \simeq15.0.
-\]
+$$
 
 When evaluating an ADC for precision detector readout, both its nominal resolution and its noise performance must therefore be considered.
 
