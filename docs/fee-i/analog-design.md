@@ -104,10 +104,7 @@ For the frequency-response analysis, the offset inputs $V_1$ and $V_2$ in Figure
 The transfer function of the second-order filter can be written as
 
 $$
-T(f)=
-\frac{A}{
-1-(f/f_0)^2-iQ^{-1}(f/f_0)
-},
+T(f)= \frac{A}{ 1-(f/f_0)^2-iQ^{-1}(f/f_0) },
 $$
 
 where
@@ -123,19 +120,13 @@ $$
 $$
 
 $$
-\boxed{
-f_0=\frac{1}{2\pi\sqrt{C_1C_2R_1R_2}}
-}
+\boxed{ f_0=\frac{1}{2\pi\sqrt{C_1C_2R_1R_2}} }
 $$
 
 and
 
 $$
-\boxed{
-Q=
-\frac{\sqrt{C_1C_2R_1R_2}}
-{C_2R_2-C_1R_1R_4/R_3+C_2R_1}
-}.
+\boxed{ Q= \frac{\sqrt{C_1C_2R_1R_2}} {C_2R_2-C_1R_1R_4/R_3+C_2R_1} }.
 $$
 
 These equations allow the filter characteristics to be determined directly from the circuit components.
@@ -145,9 +136,7 @@ These equations allow the filter characteristics to be determined directly from 
 The design can be simplified by choosing equal resistors and capacitors in the frequency-selective network:
 
 $$
-R_1=R_2=R_F,
-\qquad
-C_1=C_2=C_F.
+R_1=R_2=R_F, \qquad C_1=C_2=C_F.
 $$
 
 The characteristic frequency then becomes
@@ -220,9 +209,7 @@ $$
 The time required for this envelope to decrease by a factor of $2^{-N}$ is
 
 $$
-\boxed{
-t_s(N)=N\ln(2)\frac{Q}{\pi f_0}
-}.
+\boxed{ t_s(N)=N\ln(2)\frac{Q}{\pi f_0} }.
 $$
 
 For a 16-bit settling criterion,
@@ -248,15 +235,7 @@ The signal-to-noise ratio (SNR) of an ADC is defined as the ratio of signal powe
 Expressed in decibels,
 
 $$
-\boxed{
-\mathrm{SNR}
-=
-20\log_{10}
-\left(
-\frac{V_{\mathrm{signal,rms}}}
-{V_{\mathrm{noise,rms}}}
-\right)
-}.
+\boxed{ \mathrm{SNR} = 20\log_{10} \left( \frac{V_{\mathrm{signal,rms}}} {V_{\mathrm{noise,rms}}} \right) }.
 $$
 
 ADC datasheets commonly specify SNR using a sinusoidal input signal.
@@ -272,31 +251,19 @@ If the voltage corresponding to one least significant bit is $V_{\mathrm{LSB}}$,
 the quantization error is assumed to be uniformly distributed over
 
 $$
--\frac{V_{\mathrm{LSB}}}{2}
-\leq e \leq
-\frac{V_{\mathrm{LSB}}}{2}.
+-\frac{V_{\mathrm{LSB}}}{2} \leq e \leq \frac{V_{\mathrm{LSB}}}{2}.
 $$
 
 The mean-square quantization error is
 
 $$
-V_{\mathrm{noise,rms}}^2
-=
-\frac{1}{V_{\mathrm{LSB}}}
-\int_{-V_{\mathrm{LSB}}/2}^{V_{\mathrm{LSB}}/2}
-e^2\,de
-=
-\frac{V_{\mathrm{LSB}}^2}{12}.
+V_{\mathrm{noise,rms}}^2 = \frac{1}{V_{\mathrm{LSB}}} \int_{-V_{\mathrm{LSB}}/2}^{V_{\mathrm{LSB}}/2} e^2\,de = \frac{V_{\mathrm{LSB}}^2}{12}.
 $$
 
 Therefore,
 
 $$
-\boxed{
-V_{\mathrm{noise,rms}}
-=
-\frac{V_{\mathrm{LSB}}}{\sqrt{12}}
-}.
+\boxed{ V_{\mathrm{noise,rms}} = \frac{V_{\mathrm{LSB}}}{\sqrt{12}} }.
 $$
 
 ### 4.3 Ideal ADC SNR
@@ -304,28 +271,19 @@ $$
 For a full-scale sinusoidal input, the RMS signal voltage is approximately
 
 $$
-V_{\mathrm{signal,rms}}
-=
-\frac{2^N V_{\mathrm{LSB}}}{2\sqrt{2}}.
+V_{\mathrm{signal,rms}} = \frac{2^N V_{\mathrm{LSB}}}{2\sqrt{2}}.
 $$
 
 Combining this with the quantization noise gives
 
 $$
-\mathrm{SNR}
-=
-20\log_{10}
-\left(
-\frac{2^N\sqrt{12}}{2\sqrt{2}}
-\right).
+\mathrm{SNR} = 20\log_{10} \left( \frac{2^N\sqrt{12}}{2\sqrt{2}} \right).
 $$
 
 Thus, the theoretical SNR of an ideal $N$-bit ADC is
 
 $$
-\boxed{
-\mathrm{SNR}=6.02N+1.76\ \mathrm{dB}
-}.
+\boxed{ \mathrm{SNR}=6.02N+1.76\ \mathrm{dB} }.
 $$
 
 For example, an ideal 16-bit ADC has an SNR of approximately 98.1 dB.
@@ -340,11 +298,7 @@ The effective number of bits (ENOB) expresses the measured ADC performance as an
 Using the ideal SNR relationship,
 
 $$
-\boxed{
-\mathrm{ENOB}
-=
-\frac{\mathrm{SNR}-1.76}{6.02}
-}.
+\boxed{ \mathrm{ENOB} = \frac{\mathrm{SNR}-1.76}{6.02} }.
 $$
 
 An ADC with a nominal resolution of 16 bits does not necessarily provide 16 bits of effective resolution.
@@ -352,10 +306,7 @@ An ADC with a nominal resolution of 16 bits does not necessarily provide 16 bits
 For example, an SNR of 92 dB corresponds to
 
 $$
-\mathrm{ENOB}
-=
-\frac{92-1.76}{6.02}
-\simeq15.0.
+\mathrm{ENOB} = \frac{92-1.76}{6.02} \simeq15.0.
 $$
 
 When evaluating an ADC for precision detector readout, both its nominal resolution and its noise performance must therefore be considered.
